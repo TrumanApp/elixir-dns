@@ -7,9 +7,7 @@ defmodule DNS do
   """
   @spec resolve(char_list | char_list, { String.t, :inet.port }) :: :inet.ip
   def resolve(domain, dns_server \\ { "8.8.8.8", 53 }) do
-  IO.inspect query(domain, dns_server).anlist
     [ answer | _ ] = query(domain, dns_server).anlist
-    |> IO.inpsect
     answer.data
   end
 
